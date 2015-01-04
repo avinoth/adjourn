@@ -7,6 +7,10 @@ body {
   padding-top: 50px;
 }
 
+.cust-input {
+  border: none;
+  border-radius:  0;
+}
 
 /*
  * Global add-ons

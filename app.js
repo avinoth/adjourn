@@ -4,12 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 var routes = require('./routes/index');
 var manage = require('./routes/manage');
 var newentry = require('./routes/newentry');
+var addentry = require('./routes/addentry');
 
 var app = express();
+
+destDir = JSON.parse(fs.readFileSync('config.json', 'utf-8')).folderPath;
+tracker = JSON.parse(fs.readFileSync('tracker.json', 'utf-8'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/manage', manage);
 app.use('/newentry', newentry)
+app.post('/addentry', addentry)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

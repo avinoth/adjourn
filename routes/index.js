@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'adjourn - the lightweight journal' });
+  createdTotal = tracker.created.length
+  res.render('index', { title: 'adjourn - the lightweight journal', total: createdTotal});
 });
 
 module.exports = router;
