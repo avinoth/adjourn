@@ -1,6 +1,6 @@
 extends layout
 block right-btn
-  button.navbar-btn.btn.btn-info New Entry
+  button.navbar-btn.btn.btn-info(onclick="location.href='/newentry'") New Entry
 block body
   .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
     h2.sub-header Mange your entries
@@ -12,7 +12,8 @@ block body
             th Name
             th Created on
         tbody
-          tr
-            td 1
-            td Another beautiful day!!
-            td 23th November, 2011
+          each val, index in entries
+            tr
+              td= index+1
+              td= val.title
+              td= val.time

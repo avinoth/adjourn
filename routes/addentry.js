@@ -10,7 +10,9 @@ router.post('/addentry', function(req, res) {
   writeContent(function(err, done) {
     if (err) throw err;
     console.log("Finshed writing the content. Starting log writing");
-    tracker.created.push({title: title, time: new Date()});
+    date = new Date()
+    timestamp = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear()
+    tracker.created.push({title: title, time: timestamp});
     fs.writeFileSync('tracker.json', JSON.stringify(tracker, null, 4));
     console.log("Finished writing log files");
   });
