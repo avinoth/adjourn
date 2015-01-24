@@ -1,0 +1,12 @@
+extends layout
+block right-btn
+  button.navbar-btn.btn.btn-info(onclick="location.href='/manage'") Manage
+block body
+  .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+    form(method='post', name='addentry', action='/addentry')
+      input(type='text', name='head', class='form-control cust-input', value= entrytitle)
+      textarea(class='form-control cust-input', name='content', rows='20', value= entrycontent)
+      div.pull-right
+        button.btn.btn-info(type="submit") submit
+
+
